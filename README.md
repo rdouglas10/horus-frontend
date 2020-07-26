@@ -35,4 +35,4 @@ ou
 $ ng serve
 ```
 
->:warning: Make sure the routes are correct (directory services/data.service.ts) and that the backend application ([backend] (https://github.com/rdouglas10/horus)) is running!
+>:warning: Make sure the routes are correct (directory services/data.service.ts) and that the [backend application](https://github.com/rdouglas10/horus) also is running!
