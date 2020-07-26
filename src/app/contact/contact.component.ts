@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -7,12 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.less']
 })
 export class ContactComponent implements OnInit {
-  
-  constructor() { }
+  dataArr:any;
+  dataAlert:any;
+    
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
+  	this.getContactsData();
   }
 
+
+  getContactsData()
+  {
+  	this.dataService.getData().subscribe(res=>{
+  		this.dataArr=res;
+  	});
+  }	
 
 
 }
