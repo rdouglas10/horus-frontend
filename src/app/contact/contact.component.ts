@@ -39,4 +39,12 @@ export class ContactComponent implements OnInit {
   });
   }
   
+
+  deleteContactData(id)
+  {
+  	this.dataService.deleteData(id).subscribe(res=>{
+  		this.getContactsData();
+  	});
+  }
+
 }
