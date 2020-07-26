@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-
+import { Contact } from './contact.model';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +10,7 @@ import { DataService } from '../services/data.service';
 export class ContactComponent implements OnInit {
   dataArr:any;
   dataAlert:any;
-    
+  contact = new Contact();
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
@@ -26,4 +26,17 @@ export class ContactComponent implements OnInit {
   }	
 
 
+  insertContactData()
+  {
+	this.dataService.insertData(this.contact).subscribe(res=>{
+  		this.getContactsData();
+      this.dataAlert = "Created Contact!";
+  	},
+    erro=>{ 
+      if(erro.status == 400) {
+        this.dataAlert = erro.error;
+      }
+  });
+  }
+  
 }
