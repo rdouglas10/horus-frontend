@@ -1,1 +1,1 @@
-# horus-frontend
+# Horus Challenge - Frontend
