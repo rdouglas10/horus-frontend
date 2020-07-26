@@ -25,4 +25,7 @@ export class DataService {
     return this.httpClient.get('http://127.0.0.1:5000/api/v1/contacts/'+id);
   }
 
+  UpdateData(id,data){
+    return this.httpClient.put('http://127.0.0.1:5000/api/v1/contacts/'+id, data);  
+  }
 }

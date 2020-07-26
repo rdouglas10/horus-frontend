@@ -11,6 +11,7 @@ import { Contact } from '../contact/contact.model';
 export class ContactEditComponent implements OnInit {
  id:any;
  data:any;
+ dataAlert:any;
 
   contact = new Contact();
   constructor( 
@@ -27,6 +28,21 @@ export class ContactEditComponent implements OnInit {
   		this.data=res;
   		this.contact=this.data;
   	});
+  }
+
+
+  updateContactData(){
+  	this.dataService.UpdateData(this.id, this.contact).subscribe(res=>{
+      this.getData();
+      this.dataAlert = "updated contact!";
+  	},
+    erro=>{
+      if(erro.status == 400) {
+        this.dataAlert = erro.error;
+      }else if(erro.status == 404){
+        this.dataAlert = erro.error;
+      }
+    });
   }
 
 
