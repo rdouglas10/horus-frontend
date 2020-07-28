@@ -28,6 +28,11 @@ $ git clone https://github.com/rdouglas10/horus-frontend.git
 $ cd horus-frontend
 ```
 
+- To execute access the project root to install dependences:
+```sh
+$ npm install
+```
+
 - To execute access the project root:
 ```sh
 $ npm start
